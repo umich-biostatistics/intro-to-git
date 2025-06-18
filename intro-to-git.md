@@ -1,3 +1,12 @@
+---
+revealjs:
+  width: 1280
+  height: 700
+  margin: 0.04
+  minScale: 0.2
+  maxScale: 2.0
+---
+
 # GitHub Workshop
 
 ---
