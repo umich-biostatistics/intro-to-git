@@ -71,7 +71,7 @@
     
         <section >
             
-            <h1>BDSI GitHub Workshop</h1>
+            <h1>GitHub Workshop</h1>
 
             </section>
     
@@ -93,7 +93,7 @@
             
             <h3>Git</h3>
 <ul>
-<li>A distributed version control system.</li>
+<li>A distributed <strong>version control</strong> system.</li>
 <li>Tracks changes in source code.</li>
 <li>Enables collaboration among developers.</li>
 </ul>
@@ -108,7 +108,7 @@
             
             <h3>GitHub</h3>
 <ul>
-<li>A web-based hosting service for Git repositories.</li>
+<li>A web-based <strong>hosting</strong> service for Git repositories.</li>
 <li>Facilitates collaboration and code sharing.</li>
 <li>Git is the tool, GitHub is the platform.</li>
 </ul>
@@ -136,9 +136,10 @@
 <li><strong>Track changes:</strong> See who changed what, when, and why.</li>
 <li><strong>Revert to previous versions:</strong> Easily undo mistakes.</li>
 <li><strong>No more “final_final_v2.R”:</strong> Keep a clean project history.</li>
-<li><strong>Collaborate:</strong> Work on the same project with others seamlessly.</li>
+<li><strong>Collaborate:</strong> Work on the same project with others seamlessly.*</li>
 <li><strong>Reproducibility &amp; Transparency:</strong> Core principles in data science.</li>
 </ul>
+<p><sup> * Using git collaboratively still requires communication!</sup></p>
 
             </section>
     
@@ -161,6 +162,11 @@
             <h3>1. Create a GitHub Account</h3>
 <ul>
 <li>Go to <a href="http://github.com">github.com</a> and sign up.</li>
+<li>Use your home institution’s .edu email
+<ul>
+<li>This should help with getting free stuff, like copilot!</li>
+</ul>
+</li>
 </ul>
 
             </section>
@@ -215,7 +221,7 @@ git config --global user.email &quot;your.email@example.com&quot;
             <h3>Why SSH?</h3>
 <ul>
 <li>Securely connect to GitHub without entering your username/password each time.</li>
-<li>GitHub no longer supports password auth over https</li>
+<li>GitHub no longer supports password auth over https.</li>
 </ul>
 
             </section>
@@ -231,10 +237,10 @@ git config --global user.email &quot;your.email@example.com&quot;
 <li>Generate key. Run in terminal and accept the defaults:<pre><code class="language-bash">ssh-keygen
 </code></pre>
 </li>
-<li>Copy your public key.<pre><code class="language-bash"># On macOS
-pbcopy &lt; ~/.ssh/id_rsa.pub
-# On Linux
-cat ~/.ssh/id_rsa.pub
+<li>Copy your public key:<pre><code class="language-bash"># On macOS
+pbcopy &lt; ~/.ssh/id_ed25519.pub
+# On Linux/Windows git bash
+cat ~/.ssh/id_ed25519.pub
 </code></pre>
 </li>
 <li>Go to GitHub settings &gt; SSH and GPG keys &gt; New SSH key.</li>
@@ -291,15 +297,20 @@ cat ~/.ssh/id_rsa.pub
             <h3>3. Save Changes (Commit)</h3>
 <ul>
 <li>A “commit” is a snapshot of your changes.</li>
-<li><strong>Step A: Stage your changes.</strong> Tell Git which files to include.<pre><code class="language-bash">git add &lt;file1&gt; &lt;file2&gt;
+</ul>
+<ol>
+<li><strong>Stage your changes.</strong> Tell Git which files to include.<pre><code class="language-bash">git add &lt;file1&gt; &lt;file2&gt;
 # or stage all changes
 git add .
 </code></pre>
+<ul>
+<li>This is useful if you made many changes, but only want to commit a select few.</li>
+</ul>
 </li>
-<li><strong>Step B: Commit the staged changes.</strong><pre><code class="language-bash">git commit -m &quot;A short, descriptive message about your changes&quot;
+<li><strong>Commit the staged changes.</strong><pre><code class="language-bash">git commit -m &quot;A short, descriptive message about your changes&quot;
 </code></pre>
 </li>
-</ul>
+</ol>
 
             </section>
     
@@ -408,506 +419,7 @@ git add .
     
         <section >
             
-            <h1>Q&amp;A</h1>
-<hr>
-<h3>Understanding Repositories</h3>
-<ul>
-<li><strong>Remote:</strong> on GitHub</li>
-<li><strong>Local:</strong> on your machine (a clone)</li>
-<li>The <code>git clone</code> command.</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>Cloning in RStudio</h3>
-<ol>
-<li>New Project &gt; Version Control &gt; Git.</li>
-<li>Paste repository URL (SSH or HTTPS).</li>
-<li>Select a local directory.</li>
-</ol>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>Initial Project Setup</h3>
-<ul>
-<li>RStudio’s Git pane.</li>
-<li>The hidden <code>.git</code> directory.</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h2>Making Changes</h2>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>The Three Areas</h3>
-<ul>
-<li><strong>Working Directory:</strong> Your local files.</li>
-<li><strong>Staging Area (Index):</strong> Prepare changes for commit (<code>git add</code>).</li>
-<li><strong>Local Repository:</strong> Where committed changes are stored (<code>git commit</code>).</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>Common File Operations</h3>
-<ul>
-<li>Create new files.</li>
-<li>Modify existing files.</li>
-<li>Delete files.</li>
-<li>Rename files.</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>RStudio Integration</h3>
-<ul>
-<li>Changes are visible in RStudio’s Git pane.</li>
-<li>Use checkboxes for staging.</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h2>Commit</h2>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>What is a Commit?</h3>
-<ul>
-<li>A snapshot of your repository.</li>
-<li>Records staged changes.</li>
-<li>Has a unique ID (SHA-1 hash).</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>The Commit Process</h3>
-<ol>
-<li>Stage changes: <code>git add &lt;file(s)&gt;</code></li>
-<li>Commit staged changes: <code>git commit -m &quot;Your commit message&quot;</code></li>
-</ol>
-<ul>
-<li>Write clear, concise commit messages.</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>Viewing Commit History</h3>
-<ul>
-<li><code>git log</code> in the command line.</li>
-<li>RStudio’s Git history viewer.</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h2>Divergent branch</h2>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>Understanding Divergence</h3>
-<ul>
-<li>When two branches have different commit histories.</li>
-<li>Happens when <code>main</code> is updated while you work on a feature branch.</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>Detecting Divergence</h3>
-<ul>
-<li><code>git status</code> will show your branch has diverged.</li>
-<li><code>git log --graph --all --decorate</code> to visualize.</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>Resolving Divergence</h3>
-<ul>
-<li><code>git pull</code> to get remote changes.</li>
-<li>Strategies: <strong>rebase</strong> or <strong>merge</strong>.</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h2>Rebase vs. Merge</h2>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>Rebase</h3>
-<ul>
-<li>Moves your commits on top of the latest changes from another branch.</li>
-<li>Creates a linear, cleaner history.</li>
-<li><strong>Rewrites commit history.</strong></li>
-<li><code>git rebase main</code></li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>Caution with Rebase</h3>
-<ul>
-<li><strong>NEVER rebase a public/shared branch.</strong></li>
-<li>It can cause major issues for collaborators.</li>
-<li>Use it for your personal branches before merging.</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>Merge</h3>
-<ul>
-<li>Integrates changes from one branch to another with a “merge commit”.</li>
-<li>Preserves the exact history of both branches.</li>
-<li><code>git merge feature-branch</code></li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>Merge Conflicts</h3>
-<ul>
-<li>Happen when Git can’t automatically combine changes.</li>
-<li>You must manually edit the files to resolve them.</li>
-<li><code>git status</code> -&gt; resolve -&gt; <code>git add</code> -&gt; <code>git commit</code></li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>When to Use Merge</h3>
-<ul>
-<li>Integrating feature branches into <code>main</code>.</li>
-<li>When you want to preserve the full history.</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h2>Dangerous Commands</h2>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3><code>git push --force</code></h3>
-<ul>
-<li>Overwrites the remote branch with your local one.</li>
-<li><strong>Can erase collaborators’ work.</strong></li>
-<li>Use <code>--force-with-lease</code> for a safer alternative.</li>
-<li>Only use on your own, unshared branches after a rebase.</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3><code>git reset --hard</code></h3>
-<ul>
-<li><strong>Destructive!</strong> Discards all local changes (uncommitted and staged).</li>
-<li><code>git reset --hard HEAD</code>: discard changes since last commit.</li>
-<li><code>git reset --hard &lt;commit_hash&gt;</code>: go back to a specific commit.</li>
-<li>Use with extreme caution.</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h2>Branches</h2>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>What is a Branch?</h3>
-<ul>
-<li>A pointer to a commit.</li>
-<li>Allows isolated development for features or bug fixes.</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>Branching Workflow</h3>
-<ul>
-<li><strong><code>main</code>:</strong> Stable, production-ready code.</li>
-<li><strong>Feature branches:</strong> For new features.</li>
-<li><strong>Bugfix branches:</strong> For fixing bugs.</li>
-<li><strong>Hotfix branches:</strong> For urgent production fixes.</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>Common Branch Commands</h3>
-<ul>
-<li><code>git branch</code>: List branches</li>
-<li><code>git branch &lt;name&gt;</code>: Create branch</li>
-<li><code>git checkout &lt;name&gt;</code>: Switch to branch</li>
-<li><code>git checkout -b &lt;name&gt;</code>: Create and switch</li>
-<li><code>git branch -d &lt;name&gt;</code>: Delete local branch</li>
-<li><code>git push origin --delete &lt;name&gt;</code>: Delete remote branch</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>Branching Best Practices</h3>
-<ul>
-<li>Keep branches short-lived.</li>
-<li>Use descriptive names.</li>
-<li>Merge or rebase frequently.</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h2>Pull Request (PR)</h2>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>What is a Pull Request?</h3>
-<ul>
-<li>A request to merge your changes into another branch.</li>
-<li>Facilitates code review and discussion.</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>PR Workflow</h3>
-<ol>
-<li>Create a new branch.</li>
-<li>Make and commit your changes.</li>
-<li>Push the branch to GitHub.</li>
-<li>Open a Pull Request on GitHub.</li>
-</ol>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>Key Elements of a PR</h3>
-<ul>
-<li><strong>Title and Description:</strong> Explain the “what” and “why”.</li>
-<li><strong>Reviewers:</strong> Request feedback.</li>
-<li><strong>Files Changed:</strong> See the diff.</li>
-<li><strong>Comments and Discussion.</strong></li>
-<li><strong>Checks/CI:</strong> Automated tests.</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>Merging a PR</h3>
-<ul>
-<li>After approval and passing checks.</li>
-<li>Options:
-<ul>
-<li>Merge commit</li>
-<li>Squash and merge</li>
-<li>Rebase and merge</li>
-</ul>
-</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h3>Closing a PR</h3>
-<ul>
-<li>Can be closed without merging if the changes are not needed.</li>
-</ul>
-
-            </section>
-    
-
-
-
-    
-        <section >
-            
-            <h1>Q&amp;A</h1>
+            <h2>Q&amp;A</h2>
 
             </section>
     
@@ -947,7 +459,7 @@ git add .
 <script src="libs/reveal.js/4.3.1/plugin/zoom/zoom.js"></script>
 <script src="libs/reveal.js/4.3.1/plugin/search/search.js"></script>
 <script src="libs/reveal.js/4.3.1/plugin/menu/menu.js"></script>
-<script src="libs/reveal.js/4.3.1/plugin/chalkboard/plugin.js"></script>
+
 
 <!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/plugin.js"></script>  -->
 <!--	<script src="libs/reveal.js/4.3.1/plugin/audio-slideshow/recorder.js"></script>-->
@@ -961,7 +473,7 @@ git add .
       RevealHighlight,
       RevealMath.MathJax3,
       RevealAnimate,
-      RevealChalkboard, 
+      
 			RevealEmbedTweet,
 			RevealChart,
 		];
@@ -1069,11 +581,6 @@ git add .
         startAtFragment: false, // when moving to a slide, start at the current fragment or at the start of the slide
       },
       
-      chalkboard: { // font-awesome.min.css must be available
-        //src: "chalkboard/chalkboard.json",
-        storage: "chalkboard-demo",
-      },
-      
 			customcontrols: {
 					controls: [
       						{
@@ -1082,18 +589,7 @@ git add .
 						  icon: '<i class="fa fa-th"></i>',
 						  action: 'Reveal.toggleOverview();'
 						}
-						,
-      {
-        icon: '<i class="fa fa-pen-square"></i>',
-        title: 'Toggle chalkboard (B)',
-        action: 'RevealChalkboard.toggleChalkboard();'
-      },
-      {
-        icon: '<i class="fa fa-pen"></i>',
-        title: 'Toggle notes canvas (C)',
-        action: 'RevealChalkboard.toggleNotesCanvas();'
-      }
-      
+						
 				]
 			},
 			chart: {
