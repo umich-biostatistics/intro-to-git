@@ -114,7 +114,7 @@ Workflow file: `.github/workflows/publish.yml`:
 on:
   workflow_dispatch:
   push:
-    branches: quarto-revealjs
+    branches: [main]
 
 name: Quarto Publish
 
