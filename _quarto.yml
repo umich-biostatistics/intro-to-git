@@ -1,0 +1,14 @@
+project:
+  type: default
+  output-dir: docs
+
+format:
+  revealjs:
+    theme: dark
+    slide-number: true
+    hash: true
+    controls: true
+    progress: true
+    overview: true
+    transition: slide
+    code-copy: true
